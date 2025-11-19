@@ -4,10 +4,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
-
-
-def pregunta_04():
-    """
+"""
     Calcule el promedio de `c2` por cada letra de la `c1` del archivo
     `tbl0.tsv`.
 
@@ -20,3 +17,13 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
+
+import pandas as pd
+
+def pregunta_04():
+    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
+    df = pd.read_csv(ruta, sep="\t")
+    return df.groupby("c1")["c2"].mean()
+
+if __name__ == "__main__":
+    print(pregunta_04())

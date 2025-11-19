@@ -5,9 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
-
-def pregunta_07():
-    """
+"""
     Calcule la suma de la `c2` por cada letra de la `c1` del archivo
     `tbl0.tsv`.
 
@@ -20,3 +18,13 @@ def pregunta_07():
     E    67
     Name: c2, dtype: int64
     """
+
+import pandas as pd
+
+def pregunta_07():
+    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
+    df = pd.read_csv(ruta, sep="\t")
+    return df.groupby("c1")["c2"].sum()
+
+if __name__ == "__main__":
+    print(pregunta_07())

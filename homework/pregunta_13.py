@@ -4,10 +4,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
-
-
-def pregunta_13():
-    """
+"""
     Si la columna `c0` es la clave en los archivos `tbl0.tsv` y `tbl2.tsv`,
     compute la suma de `tbl2.c5b` por cada valor en `tbl0.c1`.
 
@@ -20,3 +17,23 @@ def pregunta_13():
     E    275
     Name: c5b, dtype: int64
     """
+
+import pandas as pd
+
+def pregunta_13():
+    ruta0 = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
+    ruta2 = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl2.tsv"
+
+    df0 = pd.read_csv(ruta0, sep="\t")
+    df2 = pd.read_csv(ruta2, sep="\t")
+
+    
+    df = df0.merge(df2, on="c0")
+
+    
+    resultado = df.groupby("c1")["c5b"].sum()
+
+    return resultado
+
+if __name__ == "__main__":
+    print(pregunta_13())
