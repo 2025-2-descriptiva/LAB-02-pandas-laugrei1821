@@ -27,12 +27,8 @@ def pregunta_09():
 import pandas as pd
 
 def pregunta_09():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
-    df = pd.read_csv(ruta, sep="\t")
-
-    # Extraer el año directamente del texto (más seguro)
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
     df["year"] = df["c3"].str[:4]
-
     return df
 
 if __name__ == "__main__":

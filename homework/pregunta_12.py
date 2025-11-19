@@ -25,18 +25,15 @@ librerias de pandas para resolver las preguntas.
 import pandas as pd
 
 def pregunta_12():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl2.tsv"
-    df = pd.read_csv(ruta, sep="\t")
+    df = pd.read_csv("files/input/tbl2.tsv", sep="\t")
 
- 
+    
     df["c5"] = df["c5a"] + ":" + df["c5b"].astype(str)
 
- 
-    df = df.sort_values(["c0", "c5a"])
-
+  
     tabla = (
         df.groupby("c0")["c5"]
-        .apply(lambda x: ",".join(x))
+        .apply(lambda x: ",".join(sorted(x)))  
         .reset_index()
     )
 

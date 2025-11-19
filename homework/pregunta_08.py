@@ -24,12 +24,8 @@ librerias de pandas para resolver las preguntas.
 import pandas as pd
 
 def pregunta_08():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
-    df = pd.read_csv(ruta, sep="\t")
-    
-    # Crear la nueva columna "suma"
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
     df["suma"] = df["c0"] + df["c2"]
-    
     return df
 
 if __name__ == "__main__":

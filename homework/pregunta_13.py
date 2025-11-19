@@ -21,16 +21,13 @@ librerias de pandas para resolver las preguntas.
 import pandas as pd
 
 def pregunta_13():
-    ruta0 = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
-    ruta2 = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl2.tsv"
+    df0 = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    df2 = pd.read_csv("files/input/tbl2.tsv", sep="\t")
 
-    df0 = pd.read_csv(ruta0, sep="\t")
-    df2 = pd.read_csv(ruta2, sep="\t")
-
-    
+    # unir df0 con df2 por c0
     df = df0.merge(df2, on="c0")
 
-    
+    # sumar c5b agrupado por c1
     resultado = df.groupby("c1")["c5b"].sum()
 
     return resultado

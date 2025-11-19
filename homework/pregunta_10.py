@@ -22,14 +22,12 @@ librerias de pandas para resolver las preguntas.
 import pandas as pd
 
 def pregunta_10():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
-    df = pd.read_csv(ruta, sep="\t")
-
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
 
     tabla = (
         df.groupby("c1")["c2"]
         .apply(lambda x: ":".join(sorted(map(str, x))))
-        .to_frame()   
+        .to_frame()
     )
 
     return tabla

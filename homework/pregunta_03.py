@@ -23,8 +23,7 @@ librerias de pandas para resolver las preguntas.
 import pandas as pd
 
 def pregunta_03():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
-    df = pd.read_csv(ruta, sep="\t")
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
     return df["c1"].value_counts().sort_index()
 
 if __name__ == "__main__":
