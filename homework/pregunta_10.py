@@ -5,7 +5,9 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
-"""
+
+def pregunta_10():
+    """
     Construya una tabla que contenga `c1` y una lista separada por ':' de los
     valores de la columna `c2` para el archivo `tbl0.tsv`.
 
@@ -18,21 +20,3 @@ librerias de pandas para resolver las preguntas.
     D                   1:2:3:5:5:7
     E   1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-
-import pandas as pd
-
-def pregunta_10():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl0.tsv"
-    df = pd.read_csv(ruta, sep="\t")
-
-
-    tabla = (
-        df.groupby("c1")["c2"]
-        .apply(lambda x: ":".join(sorted(map(str, x))))
-        .to_frame()   
-    )
-
-    return tabla
-
-if __name__ == "__main__":
-    print(pregunta_10())

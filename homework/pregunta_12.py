@@ -5,7 +5,9 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
-"""
+
+def pregunta_12():
+    """
     Construya una tabla que contenga `c0` y una lista separada por ','
     de los valores de la columna `c5a`  y `c5b` (unidos por ':') de la
     tabla `tbl2.tsv`.
@@ -20,27 +22,3 @@ librerias de pandas para resolver las preguntas.
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
-
-
-import pandas as pd
-
-def pregunta_12():
-    ruta = r"C:\Especializacion-Analitica\Descriptiva\LAB-02-pandas-laugrei1821\files\input\tbl2.tsv"
-    df = pd.read_csv(ruta, sep="\t")
-
- 
-    df["c5"] = df["c5a"] + ":" + df["c5b"].astype(str)
-
- 
-    df = df.sort_values(["c0", "c5a"])
-
-    tabla = (
-        df.groupby("c0")["c5"]
-        .apply(lambda x: ",".join(x))
-        .reset_index()
-    )
-
-    return tabla
-
-if __name__ == "__main__":
-    print(pregunta_12())
